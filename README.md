@@ -11,6 +11,8 @@ through built in CSV.
 
 StakeholderCommunication - the simplified message I would send over Slack to address some of the next steps I have for the process. 
 
+I also uploaded the "clean" files from the python code. 
+
 Thanks for this opportunity!
 
 Best,
