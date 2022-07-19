@@ -1,0 +1,38 @@
+CREATE TABLE "STARLORDPRACTICE"."PUBLIC"."RECEIPTS"(
+    receipt_id varchar,
+    bonusPointsEarned varchar,
+    bonusPointsEarnedReason varchar,
+    createDate varchar,
+    dateScanned varchar,
+    finishedDate varchar,
+    modifyDate varchar,
+    pointsAwardedDate varchar,
+    pointsEarned varchar,
+    purchaseDate varchar,
+    purchasedItemCount varchar,
+    rewardsReceiptStatus varchar,
+    totalSpent varchar,
+    userId varchar
+    );
+//We are missing some of the columns, but we can run these queries for now, in the future ideally we can pull in all the information necessary. But for now let's move on. 
+SELECT * FROM "STARLORDPRACTICE"."PUBLIC"."RECEIPTS"
+
+//'Accepted' or 'Rejected', which is greater?
+//Looks like we do not have any "accepted" categorized receipts. For this analysis we will assume "Finished" is the same as "Accepted" but need to communicate that to stakeholder, "Submitted" could also be used. 
+
+SELECT rewardsReceiptStatus, avg(totalSpent) as AvgTotalSpent
+FROM "STARLORDPRACTICE"."PUBLIC"."RECEIPTS"
+GROUP BY rewardsReceiptStatus
+HAVING rewardsReceiptStatus IN ('ACCEPTED', 'FINISHED', 'SUBMITTED', 'REJECTED')
+
+//Looks like after run this we see that the 'Rejected' status has about a $4.00 increase over the "Finished" status receipts. I would not have a ton of confidence here though. Note all "Submitted" are null. 
+//Without confirming the removal of duplicates and nulls, we could have data that should not be included, but that we can communicate to stakeholder. 
+
+//Total number of items purchased from receipts 'Accepted' or "Rejected" - we will use same definition as above 
+
+SELECT rewardsReceiptStatus, sum(purchasedItemCount) as TotalItemsPurchased
+FROM "STARLORDPRACTICE"."PUBLIC"."RECEIPTS"
+GROUP BY rewardsReceiptStatus
+HAVING rewardsReceiptStatus IN ('ACCEPTED', 'FINISHED', 'SUBMITTED', 'REJECTED')
+
+//Looks like finished has the largest total items purchased, but we are missing a few columns and do not have confirmation on what is considered "Accepted" yet! Let's talk to the stakeholder...
