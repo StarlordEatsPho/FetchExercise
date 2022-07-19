@@ -1,0 +1,24 @@
+Hello (stakeholder), 
+
+Hope this email finds you well. My name is Caleb Basu, a data analyst on David's team. I was going through some of our receipt and user data to try and answer some
+of our high priority business questions. Overall, I think we have a few issues and data housekeeping we will need to do before I can confidently answer. If we can
+work together on this, I would love to propose some next steps:
+
+1. Can we confirm where and how this data is being pulled? I found several duplicate, missing values, and improperly formatted fields in the raw data. If this is how
+we are currently pulling information out, I would like to propose a potential alternative solution using Snowflake. It would be great to include the data engineering
+team in this as well as I think there is an opportunity to optimize our current process.
+
+2. To answer your initial questions, it looks like we have not "Accepted" status in our receipt status field. Currently we are tracking "Submitted" and "Finished" as
+potential options. Based on your initial question I did some initial digging, it looks like "Finished" status receipts have the largest number of items purchased. 
+However, I would like to caveat, that I am not 100% confident in that answer, and would need some answer to the first question before confirming. There are also
+a few other fields that are supposed to be stagnant (i.e. our 'role' field should be set to "consumer" but it has "fetch-staff" also).
+
+I have attached my initial insights, but I think at this point the best next step would be to schedule a meeting with the various stakeholders in this project. I 
+would love to learn more about how this data is being pulled, what I can do to help, and see if we can get you the answers you are looking for accurately and as 
+soon as possible. Will talk soon.
+
+Have a great weekend,
+
+Thanks!
+
+Caleb 
